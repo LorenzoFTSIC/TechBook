@@ -30,7 +30,6 @@ router.get('/:id', withAuth, async (req, res) => {
   }
 });
 
-// post
 router.post('/create', async (req, res) => {
   try {
     const user = await User.findOne({
@@ -51,7 +50,6 @@ router.post('/create', async (req, res) => {
   }
 });
 
-// update
 router.put('/update', async (req, res) => {
   try {
     const dbPostData = await Post.update(
@@ -75,7 +73,6 @@ router.put('/update', async (req, res) => {
   }
 });
 
-// delete
 router.delete('/delete', async (req, res) => {
   try {
     const dbPostData = await Post.destroy({

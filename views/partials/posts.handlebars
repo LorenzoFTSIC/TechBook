@@ -1,0 +1,17 @@
+<div class="card mt-5 col-10 mx-auto p-0 text-center shadow">
+  <a class="post-card" href="api/posts/{{ id }}">
+    <div class="card-header card-header-custom pb-0">
+      <h2>
+        {{ title }}
+      </h2>
+      <p class="small text-muted">
+        Posted by {{ user }} on {{ format_date createdAt }}
+      </p>
+    </div>
+    <div class="card-body text-center">
+      <p class="card-text">
+        {{ content }}
+      </p>
+    </div>
+  </a>
+</div>

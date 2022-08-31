@@ -1,0 +1,36 @@
+* {
+    font-family: 'Noto Sans', sans-serif;
+  }
+  
+  input {
+    text-align: center;
+  }
+  
+  body {
+    background-color: white;
+  }
+  
+  .header-custom {
+    background-color: #383838;
+  }
+  
+  .card-header-custom {
+    background-color: #DEDEDE;
+  }
+  
+  #login, a {
+    text-decoration: none;
+  }
+  #login, a:hover {
+    text-decoration: none;
+  }
+  
+  .post-card {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .post-card:hover {
+    text-decoration: none;
+    color: black;
+  }

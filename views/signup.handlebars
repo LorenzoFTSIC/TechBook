@@ -1,0 +1,49 @@
+<header>
+  <nav class="navbar navbar-expand-lg header-custom mb-5 shadow">
+    <a data-nav="home" class="navbar-brand text-white" href="#">Tech Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a data-nav="home" class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a data-nav="dashboard" class="nav-link text-white" href="#">Dashboard</a>
+        </li>
+        {{#if logged_in}}
+        <li class="nav-item">
+          <a data-nav="logout" class="nav-link text-white" href="#">Logout</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a data-nav="login" class="nav-link text-white" href="#">Login</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+</header>
+<main>
+  <div class="card mt-3 col-5 mx-auto p-0 text-center shadow">
+      <div class="card-body text-center">
+        <form id="signup">
+          <div class="form-group">
+            <label class="h4" for="comment">Username</label>
+            <input type="text" class="form-control"  placeholder="BenFrank" id="username" required>
+          </div>
+          <div class="form-group">
+            <label class="h4" for="password">Password</label>
+            <input type="password" class="form-control" placeholder="••••••••" id="password" required>
+            <small id="passwordHelp" class="form-text text-muted">Must be 8 or more characters</small>
+          </div>
+          <button type="submit" class="btn btn-secondary">Sign Up</button>
+          <a href="/login">
+            <p class="mb-0 mt-2">Login Instead?</p>
+          </a>
+        </form>
+      </div>
+  </div>
+</main>
+<script src="/js/signup.js"></script>

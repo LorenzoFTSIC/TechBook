@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models/index');
 
-// post
 router.post('/create', async (req, res) => {
   try {
     const user = await User.findOne({
@@ -28,7 +27,6 @@ router.post('/create', async (req, res) => {
   }
 });
 
-// update
 router.put('/update', async (req, res) => {
   try {
     const dbCommentData = await Comment.update(
@@ -51,7 +49,6 @@ router.put('/update', async (req, res) => {
   }
 });
 
-// delete
 router.delete('/delete', async (req, res) => {
   try {
     const dbCommentData = await Comment.destroy({

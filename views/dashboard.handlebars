@@ -1,0 +1,68 @@
+<header>
+  <nav class="navbar navbar-expand-lg header-custom mb-5 shadow">
+    <a data-nav="home" class="navbar-brand text-white" href="#">Tech Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a data-nav="home" class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a data-nav="dashboard" class="nav-link text-white" href="#">Dashboard</a>
+        </li>
+        {{#if logged_in}}
+        <li class="nav-item">
+          <a data-nav="logout" class="nav-link text-white" href="#">Logout</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a data-nav="login" class="nav-link text-white" href="#">Login</a>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+</header>
+<main>
+  <div class="container mt-3 mx-auto text-center">
+    <button id="post-button" type="button" class="btn btn-primary pr-3 pl-2" data-toggle="modal" data-target="#postModal">
+      <span class="material-icons float-left mr-1">add</span>
+      Post</button>
+  </div>
+  <div>
+    {{#each posts as |post|}}
+    {{> dashboard-posts}}
+    {{/each}}
+  </div>
+  <div class="modal fade text-center" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="new-post">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="postModalLabel">New Blog Post</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <label class="h4" for="title">Title</label>
+                <input type="text" class="form-control" placeholder="JavaScript Mastery" id="newPostTitle" required>
+              </div>
+              <div class="form-group">
+                <label class="h4" for="content">Content</label>
+                <input type="text" class="form-control" placeholder="Prototypical Inheritance..." id="newPostContent" required>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+<script src="/js/dashboard.js"></script>

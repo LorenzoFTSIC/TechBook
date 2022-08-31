@@ -3,7 +3,6 @@ const { Post, User } = require('../models/index');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
-  // render homepage with loggedin status, user data, and post data
   try {
     const postData = await Post.findAll({
       order: [['createdAt', 'DESC']],
@@ -21,7 +20,6 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
     res.redirect('/');
     return;
@@ -33,7 +31,6 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/signup', (req, res) => {
-  // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
     res.redirect('/');
     return;
@@ -46,7 +43,6 @@ router.get('/signup', (req, res) => {
 
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    // get all posts from currently logged in user
     const user = await User.findOne({
       raw: true,
       where: {
